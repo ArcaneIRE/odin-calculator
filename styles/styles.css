@@ -46,6 +46,12 @@ body {
     font-size: .7rem;
 }
 
+#aux-operator {
+    display: flex;
+    justify-content: center;
+    width: .7rem;
+}
+
 #main-display {
     display: flex;
     justify-content: flex-end;
