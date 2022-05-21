@@ -47,6 +47,12 @@ function evaluate () {
             break;
     }
     clear();
+    if (result.toString.length > 15) {
+        let string = result.toString;
+        if (string.includes('.')){
+            result = Math.toFixed(string.length - 15);
+        }
+    }
     displayString = result;
     updateDisplay();
     return;
