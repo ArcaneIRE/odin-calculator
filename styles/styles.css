@@ -60,7 +60,7 @@ body {
     font-size: 1rem;
 }
 
-#equals {
+#evaluate {
     grid-row: 4 / 7;
     grid-column: 4 / 5;
     background-color: rgb(1, 168, 168);

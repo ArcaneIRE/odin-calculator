@@ -4,17 +4,25 @@ function subtract (a, b) { return a - b; }
 function multiply (a, b) { return a * b; }
 function divide (a, b) {return a / b; }
 
-function operate(operator, a, b) {
+function evaluate () {
+    if (displayString === '' || auxiliaryString === '') { return }
+    
+    const auxNum = parseFloat(auxiliaryString)
+    const displayNum = parseFloat(displayString);
+    let result;
     switch (operator) {
         case 'add':
-            return add(a, b);
+            result = add(auxNum, displayNum);
         case 'subtract':
-            return subtract(a, b);
+            result = subtract(auxNum, displayNum);
         case 'multiply':
-            return multiply(a, b);
+            result = multiply(auxNum, displayNum);
         case 'divide':
-            return divide(a, b);
+            result = multiply(auxNum, displayNum);
     }
+    clear();
+    displayString = result;
+    return;
 }
 
 // Display functions
@@ -79,5 +87,8 @@ window.onload = () => {
     });
     document.getElementById('clear').addEventListener('click', () => {
         clear();
+    });
+    document.getElementById('evaluate').addEventListener('click', () => {
+        evaluate();
     });
 }
