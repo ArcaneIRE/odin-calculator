@@ -4,24 +4,51 @@ function subtract (a, b) { return a - b; }
 function multiply (a, b) { return a * b; }
 function divide (a, b) {return a / b; }
 
+function operate(operation) {
+    if (displayString === '' && auxiliaryString === '') { return }
+    if (!(displayString === '' || auxiliaryString === '')) {
+        evaluate();
+    }
+    if (!(auxiliaryString === '') && displayString === '') {
+        operator = operation;
+        updateDisplay();
+        return;
+    }
+    if (auxiliaryString === '') {
+        auxiliaryString = displayString;
+        operator = operation;
+        displayString = '';
+        updateDisplay();
+        return;
+    }
+}
+
 function evaluate () {
     if (displayString === '' || auxiliaryString === '') { return }
-    
     const auxNum = parseFloat(auxiliaryString)
     const displayNum = parseFloat(displayString);
     let result;
     switch (operator) {
-        case 'add':
+        case '+':
             result = add(auxNum, displayNum);
-        case 'subtract':
+            break;
+        case '-':
             result = subtract(auxNum, displayNum);
-        case 'multiply':
+            break;
+        case '*':
             result = multiply(auxNum, displayNum);
-        case 'divide':
-            result = multiply(auxNum, displayNum);
+            break;
+        case '/':
+            if (displayNum === 0) {
+                result = 'Nice try 😏'
+                break;
+            }
+            result = divide(auxNum, displayNum);
+            break;
     }
     clear();
     displayString = result;
+    updateDisplay();
     return;
 }
 
@@ -60,7 +87,7 @@ function removeCharacterFromDisplay() {
 function clear() {
     displayString = '';
     auxiliaryString = '';
-    operator = null;
+    operator = '';
     updateDisplay();
 }
 
@@ -70,7 +97,7 @@ const auxContent = document.getElementById('aux-content');
 const auxOperator = document.getElementById('aux-operator');
 let displayString = '';
 let auxiliaryString = '';
-let operator = null;
+let operator = '';
 
 window.onload = () => {
     // Event Listeners
@@ -91,4 +118,16 @@ window.onload = () => {
     document.getElementById('evaluate').addEventListener('click', () => {
         evaluate();
     });
+    document.getElementById('add').addEventListener('click', () => {
+       operate('+'); 
+    });
+    document.getElementById('subtract').addEventListener('click', () => {
+        operate('-'); 
+     });
+     document.getElementById('multiply').addEventListener('click', () => {
+        operate('*'); 
+     });
+     document.getElementById('divide').addEventListener('click', () => {
+        operate('/'); 
+     });
 }
