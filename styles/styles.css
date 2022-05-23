@@ -1,5 +1,14 @@
+:root {
+    --bg-color: #111213;
+    --calc-color: #212224;
+    --display-color: #dfdfdf;
+    --button-color: #2f71e8;
+    --evaluate-color: #29b9f0;
+    --clear-color: #B42B51;
+}
+
 html {
-    font-size: 22px;
+    font-size: 24px;
     font-family: sans-serif;
 }
 
@@ -10,18 +19,15 @@ body {
     width: 100vw;
     margin: 0;
     padding: 0;
-    background-color: beige;
+    background-color: var(--bg-color);
 }
 
 #calculator {
     display: grid;
-    grid-template-columns: repeat(4, 3rem);
-    grid-template-rows: 3.5rem repeat(5, 2rem);
-    gap: .7rem;
-    padding: 1rem;
-    border: 1px solid black;
-    border-radius: .4rem;
-    background-color: white;
+    grid-template-columns: repeat(4, 4rem);
+    grid-template-rows: 4.5rem repeat(5, 3rem);
+    gap: 2px;
+    background-color: var(--calc-color);
 }
 
 #display {
@@ -34,8 +40,8 @@ body {
     width: auto;
     margin: 0;
     padding: .5rem;
-    border: 1px solid black;
-    border-radius: .4rem;
+    background-color: var(--display-color);
+    border-radius: 0;
 }
 
 #auxiliary-display {
@@ -43,13 +49,14 @@ body {
     justify-content: flex-end;
     align-items: center;
     flex: 1;
-    font-size: .7rem;
+    font-size: 1rem;
+    opacity: 85%;
 }
 
 #aux-operator {
     display: flex;
     justify-content: center;
-    width: .7rem;
+    width: 1rem;
 }
 
 #main-display {
@@ -57,22 +64,35 @@ body {
     justify-content: flex-end;
     align-items: center;
     flex: 2;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
 #calculator button {
     padding: 0;
-    border-radius: .4rem;
-    font-size: 1rem;
+    border-radius: 0;
+    background-color: var(--button-color);
+    border: none;
+    font-size: 1.5rem;
+    transition: scale .1s;
+}
+
+#calculator button:hover {
+    filter: brightness(150%);
+}
+
+#calculator button:active {
+    transition: scale 0s;
+    scale: 1.03;
 }
 
 #evaluate {
     grid-row: 4 / 7;
     grid-column: 4 / 5;
-    background-color: rgb(1, 168, 168);
+    background-color: var(--evaluate-color) !important;
 }
 
 #clear {
     grid-column: 4 / 5;
     grid-row: 3 / 4;
+    background-color: var(--clear-color) !important;
 }
