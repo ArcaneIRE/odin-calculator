@@ -9,17 +9,26 @@
 
 html {
     font-size: 24px;
-    font-family: sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
     display: grid;
     place-content: center;
+    gap: 1rem;
     height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
+}
+
+h1 {
+    width: 16rem;
+    margin: 0;
+    font-size: 1.8rem;
+    text-align: center;
+    color: white;
 }
 
 #calculator {
@@ -73,11 +82,11 @@ body {
     background-color: var(--button-color);
     border: none;
     font-size: 1.5rem;
-    transition: scale .1s;
+    transition: scale .15s;
 }
 
 #calculator button:hover {
-    filter: brightness(150%);
+    filter: brightness(70%);
 }
 
 #calculator button:active {
@@ -95,4 +104,13 @@ body {
     grid-column: 4 / 5;
     grid-row: 3 / 4;
     background-color: var(--clear-color) !important;
+}
+
+#github {
+    text-align: center;
+    font-size: .5;
+}
+
+#github a {
+    color: white;
 }
